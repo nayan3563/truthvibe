@@ -6,7 +6,10 @@ import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://truthvibe.vercel.app"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Social Media Post Generator - TruthVibe",
     template: "%s | TruthVibe",
@@ -21,13 +24,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com",
+    url: siteUrl,
     siteName: "TruthVibe",
     title: "Social Media Post Generator - TruthVibe",
     description: "Create engaging social media posts with custom links and monetization options",
     images: [
       {
-        url: "/og-image.png",
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "TruthVibe - Social Media Post Generator",
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     creator: "@TruthVibe",
     title: "Social Media Post Generator - TruthVibe",
     description: "Create engaging social media posts with custom links and monetization options",
-    images: ["/twitter-image.png"],
+    images: [`${siteUrl}/og-image.png`],
   },
 
   // Robots
